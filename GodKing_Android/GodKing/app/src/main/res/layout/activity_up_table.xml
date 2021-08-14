@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".index.Up_TableActivity"
+    android:orientation="vertical">
+    <TableLayout
+        android:layout_marginTop="50dp"
+        android:id="@+id/tel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tev1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="            \n"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周一    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周二    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周三    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周四    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周五    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周六    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tev8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周日    "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/te1_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7:00\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te1_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te2_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:20\n9:50\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te2_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te3_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:10\n11:40\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te3_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te4_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00\n13:00\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te4_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te5_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13:30\n15:00\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te5_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te6_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15:10\n16:40\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te6_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te7_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18:00\n19:30\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te7_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te8_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19:40\n21:10\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te8_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te9_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21:30\n22:00\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te9_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/te10_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22:00\n23:00\n"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/te10_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginLeft="100px"
+            android:id="@+id/s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            />
+        <Button
+            android:layout_marginLeft="400px"
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出"
+            />
+    </LinearLayout>
+</LinearLayout>

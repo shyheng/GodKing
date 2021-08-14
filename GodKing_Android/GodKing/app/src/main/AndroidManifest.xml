@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.shy.godking">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/godking"
+        android:label="个人管理"
+        android:roundIcon="@mipmap/godking"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GodKing"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".index.NotesItemActivity"></activity>
+        <activity android:name=".index.Delete_MyActivity" />
+        <activity android:name=".index.Up_MyActivity" />
+        <activity android:name=".index.Add_NotesActivity" />
+        <activity android:name=".index.Up_TableActivity" />
+        <activity android:name=".index.IndexActivity" />
+        <activity android:name=".login.RegActivity" />
+        <activity android:name=".login.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="4bb09c303b34114d9f14918bfc31ed1b"></meta-data>
+    </application>
+
+</manifest>
