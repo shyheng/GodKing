@@ -1,2 +1,4 @@
+com\shy\service\WorkService.class
+com\shy\model\Work.class
 com\shy\model\User.class
 com\shy\service\TestService.class

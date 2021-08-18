@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shy.mapper.WorkMapper">
+  <resultMap id="BaseResultMap" type="com.shy.model.Work">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="monday" jdbcType="VARCHAR" property="monday" />
+    <result column="tuesday" jdbcType="VARCHAR" property="tuesday" />
+    <result column="wednesday" jdbcType="VARCHAR" property="wednesday" />
+    <result column="thursday" jdbcType="VARCHAR" property="thursday" />
+    <result column="friday" jdbcType="VARCHAR" property="friday" />
+    <result column="saturday" jdbcType="VARCHAR" property="saturday" />
+    <result column="sunday" jdbcType="VARCHAR" property="sunday" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, monday, tuesday, wednesday, thursday, friday, saturday, sunday, date
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from work
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectWork" resultMap="BaseResultMap">
+    select id, monday, tuesday, wednesday, thursday, friday, saturday, sunday, `date`
+    from work
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from work
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shy.model.Work">
+    insert into work (id, monday, tuesday, 
+      wednesday, thursday, friday, 
+      saturday, sunday, date
+      )
+    values (#{id,jdbcType=INTEGER}, #{monday,jdbcType=VARCHAR}, #{tuesday,jdbcType=VARCHAR}, 
+      #{wednesday,jdbcType=VARCHAR}, #{thursday,jdbcType=VARCHAR}, #{friday,jdbcType=VARCHAR}, 
+      #{saturday,jdbcType=VARCHAR}, #{sunday,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shy.model.Work">
+    insert into work
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="monday != null">
+        monday,
+      </if>
+      <if test="tuesday != null">
+        tuesday,
+      </if>
+      <if test="wednesday != null">
+        wednesday,
+      </if>
+      <if test="thursday != null">
+        thursday,
+      </if>
+      <if test="friday != null">
+        friday,
+      </if>
+      <if test="saturday != null">
+        saturday,
+      </if>
+      <if test="sunday != null">
+        sunday,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="monday != null">
+        #{monday,jdbcType=VARCHAR},
+      </if>
+      <if test="tuesday != null">
+        #{tuesday,jdbcType=VARCHAR},
+      </if>
+      <if test="wednesday != null">
+        #{wednesday,jdbcType=VARCHAR},
+      </if>
+      <if test="thursday != null">
+        #{thursday,jdbcType=VARCHAR},
+      </if>
+      <if test="friday != null">
+        #{friday,jdbcType=VARCHAR},
+      </if>
+      <if test="saturday != null">
+        #{saturday,jdbcType=VARCHAR},
+      </if>
+      <if test="sunday != null">
+        #{sunday,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shy.model.Work">
+    update work
+    <set>
+      <if test="monday != null">
+        monday = #{monday,jdbcType=VARCHAR},
+      </if>
+      <if test="tuesday != null">
+        tuesday = #{tuesday,jdbcType=VARCHAR},
+      </if>
+      <if test="wednesday != null">
+        wednesday = #{wednesday,jdbcType=VARCHAR},
+      </if>
+      <if test="thursday != null">
+        thursday = #{thursday,jdbcType=VARCHAR},
+      </if>
+      <if test="friday != null">
+        friday = #{friday,jdbcType=VARCHAR},
+      </if>
+      <if test="saturday != null">
+        saturday = #{saturday,jdbcType=VARCHAR},
+      </if>
+      <if test="sunday != null">
+        sunday = #{sunday,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shy.model.Work">
+    update work
+    set monday = #{monday,jdbcType=VARCHAR},
+      tuesday = #{tuesday,jdbcType=VARCHAR},
+      wednesday = #{wednesday,jdbcType=VARCHAR},
+      thursday = #{thursday,jdbcType=VARCHAR},
+      friday = #{friday,jdbcType=VARCHAR},
+      saturday = #{saturday,jdbcType=VARCHAR},
+      sunday = #{sunday,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
