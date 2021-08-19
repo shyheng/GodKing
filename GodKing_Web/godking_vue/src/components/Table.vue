@@ -41,36 +41,14 @@
           label="星期七">
         </el-table-column>
       </el-table>
-      <el-button type="primary" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
+      <el-button type="primary" @click="dialogFormVisible = true">更改内容</el-button>
 
       <el-dialog title="更改信息" width="100%" :visible.sync="dialogFormVisible">
+
         <div>
-          <table>
-            <tr>
-              <td>
-                <input type="text"/>
-              </td>
-              <td>
-                <input type="text"/>
-              </td>
-              <td>
-                <input type="text"/>
-              </td>
-              <td>
-                <input type="text"/>
-              </td>
-              <td>
-                <input type="text"/>
-              </td>
-              <td>
-                <input type="text"/>
-              </td>
-              <td>
-                <input type="text"/>
-              </td>
-            </tr>
-          </table>
+          <h2>web端不支持更改</h2>
         </div>
+
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">取 消</el-button>
           <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
@@ -88,16 +66,6 @@ export default {
     return {
       workList: [],
       dialogFormVisible: false,
-      form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
-      },
       formLabelWidth: '120px'
     }
   },

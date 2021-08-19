@@ -1,4 +1,6 @@
 com\shy\service\WorkService.class
 com\shy\model\Work.class
 com\shy\model\User.class
+com\shy\service\NotesService.class
+com\shy\model\Notes.class
 com\shy\service\TestService.class
