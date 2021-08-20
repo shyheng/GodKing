@@ -43,11 +43,63 @@
       </el-table>
       <el-button type="primary" @click="dialogFormVisible = true">更改内容</el-button>
 
-      <el-dialog title="更改信息" width="100%" :visible.sync="dialogFormVisible">
+      <el-dialog title="更改信息" width="80%" :visible.sync="dialogFormVisible">
 
         <div>
-          <h2>web端不支持更改</h2>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期一
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期二
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期三
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期四
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期五
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期六
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          星期天
+          <table v-for="works in workList">
+            {{works.date}}
+            <br>
+            <tr >
+
+              <td>
+
+                <input v-model="works.monday" type="text"/>
+              </td>
+              <td>
+
+                <input v-model="works.tuesday" type="text"/>
+              </td>
+              <td>
+                <input v-model="works.wednesday" type="text"/>
+              </td>
+              <td>
+                <input v-model="works.thursday" type="text"/>
+              </td>
+              <td>
+                <input v-model="works.friday" type="text"/>
+              </td>
+              <td>
+
+                <input v-model="works.saturday" type="text"/>
+              </td>
+              <td>
+                <input v-model="works.sunday" type="text"/>
+              </td>
+            </tr>
+          </table>
         </div>
+
+        <el-button @click="up_work">提交</el-button>
 
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">取 消</el-button>
@@ -74,9 +126,17 @@ export default {
       const { data: res } = await this.$http.get('work', { params: this.shy })
       this.workList = res.work
     },
-    async up_work(){
+    async up_work () {
 
-    }
+      for (let i = 0; i < this.workList.length; i++) {
+        let work = this.workList[i]
+        const { data: res } = await this.$http.get('up_work', { params: work })
+      }
+      location.reload()
+    },
+  },
+  mounted () {
+    this.work()
   }
 }
 

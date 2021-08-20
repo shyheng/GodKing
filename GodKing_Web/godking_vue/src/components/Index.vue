@@ -12,7 +12,7 @@
         <el-menu-item id="weather" index="/wea">
           天气
         </el-menu-item>
-        <el-menu-item id="personal" index="/per">
+        <el-menu-item id="personal" disabled index="/per">
           个人信息
         </el-menu-item>
       </el-menu>
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import table from '../components/Table'
 
 export default {
   data () {

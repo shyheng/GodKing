@@ -19,4 +19,9 @@ public class WorkServiceImpl implements WorkService {
     public List<Work> selectWork() {
         return workMapper.selectWork();
     }
+
+    @Override
+    public int upWork(Work work) {
+        return workMapper.updateByPrimaryKey(work);
+    }
 }

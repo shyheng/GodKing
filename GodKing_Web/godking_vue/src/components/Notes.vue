@@ -64,7 +64,7 @@ export default {
       dialogFormVisible: false,
       notesList: [],
       notes: {
-        id:0,
+        id: 0,
         title: '',
         content: ''
       },
@@ -90,6 +90,9 @@ export default {
       })
       location.reload()
     }
+  },
+  mounted () {
+    this.On_notes()
   }
 }
 </script>
