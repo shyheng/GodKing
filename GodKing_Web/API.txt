@@ -1,0 +1,9 @@
+zookeeper
+重新开机后
+/usr/local/apache-zookeeper-3.7.0-bin/bin 启动zookeeper
+
+java
+重新开机后
+/usr/local/src 运行生产者和消费者
+
+不用管Nginx

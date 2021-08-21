@@ -23,7 +23,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         String ip = inetAddr.getHostAddress();
         System.out.println(ip);
         registry.addMapping("/**")
-                .allowedOrigins("http://"+ip+":8035","null")
+                .allowedOrigins("http://"+"120.77.255.179"+":8035","null")
                 .allowedMethods("GET","POST","PUT","OPTIONS","DELETE")
                 .allowCredentials(true)
                 .maxAge(3600);

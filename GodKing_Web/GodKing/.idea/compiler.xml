@@ -13,9 +13,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Consumer" target="15" />
+      <module name="Consumer" target="11" />
       <module name="Interface" target="15" />
-      <module name="Provider" target="15" />
+      <module name="Provider" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

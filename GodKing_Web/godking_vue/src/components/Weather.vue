@@ -1,49 +1,64 @@
 <template>
-  <section class="p-10">
-    <h1>{{ ip }}</h1>
-  </section>
+  <div>
+    <div>
+      <el-input v-model="up_ip.up_ip" placeholder="请输入地址"></el-input>
+      <el-button type="primary" @click="sub_addr">查看天气</el-button>
+    </div>
+    <h1>当前地址：{{ addr }}</h1>
+    <h1>当前温度：{{ weatherList[0].temperature }}</h1>
+    <div>
+      <el-table
+        :data="weatherList"
+        style="width: 100%">
+        <el-table-column
+          prop="hour"
+          label="时间\小时">
+        </el-table-column>
+        <el-table-column
+          prop="temperature"
+          label="温度\℃">
+        </el-table-column>
+        <el-table-column
+          prop="weather"
+          label="天气">
+        </el-table-column>
+      </el-table>
+    </div>
+  </div>
 </template>
 
 <script>
+import { getUserIP } from '../assets/u'
 export default {
   data() {
     return {
-      ip: ''
+      ip: '',
+      up_ip:{
+        up_ip:''
+      },
+      addr:'',
+      weatherList:[]
     };
   },
   methods: {
-    getUserIP(onNewIP) {
-      let MyPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
-      let pc = new MyPeerConnection({
-        iceServers: []
-      });
-      let noop = () => {
-      };
-      let localIPs = {};
-      let ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
-      let iterateIP = (ip) => {
-        if (!localIPs[ip]) onNewIP(ip);
-        localIPs[ip] = true;
-      };
-      pc.createDataChannel('');
-      pc.createOffer().then((sdp) => {
-        sdp.sdp.split('\n').forEach(function (line) {
-          if (line.indexOf('candidate') < 0) return;
-          line.match(ipRegex).forEach(iterateIP);
-        });
-        pc.setLocalDescription(sdp, noop, noop);
-      }).catch((reason) => {
-      });
-      pc.onicecandidate = (ice) => {
-        if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
-        ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
-      };
-    }
+    async sub_addr () {
+      const { data: res } = await this.$http.get('up_ip', { params: this.up_ip })
+      this.addr = res.addr
+      this.weatherList = res.weatherList
+      console.log(this.addr)
+      console.log(this.weatherList)
+    },
+    async weather () {
+      const { data: res } = await this.$http.get('ip', { params: this.ip })
+      this.addr = res.addr
+      this.weatherList = res.weatherList
+    },
   },
   mounted() {
-    this.getUserIP((ip) => {
+    getUserIP((ip) => {
       this.ip = ip;
     });
+    this.weather()
   }
 }
 </script>
