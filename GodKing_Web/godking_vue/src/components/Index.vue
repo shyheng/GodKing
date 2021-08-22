@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container id="bg">
     <el-header>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
                background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router="router">
@@ -17,7 +17,7 @@
         </el-menu-item>
       </el-menu>
     </el-header>
-    <el-main>
+    <el-main >
       <router-view></router-view>
     </el-main>
     <el-footer>
@@ -50,5 +50,5 @@ export default {
 </script>
 
 <style scoped>
-
+@import url("../assets/bg.css");
 </style>

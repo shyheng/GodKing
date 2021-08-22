@@ -2,45 +2,48 @@
   <div>
 
     <template v-if="workList.length">
-      <el-table
-        :data="workList"
-        border
-        style="width: 100%">
-        <el-table-column
-          prop="date"
-          label=""
-          width="180">
-        </el-table-column>
-        <el-table-column
-          prop="monday"
-          label="星期一"
-          width="180">
-        </el-table-column>
-        <el-table-column
-          prop="tuesday"
-          label="星期二">
-        </el-table-column>
-        <el-table-column
-          prop="wednesday"
-          label="星期三">
-        </el-table-column>
-        <el-table-column
-          prop="thursday"
-          label="星期四">
-        </el-table-column>
-        <el-table-column
-          prop="friday"
-          label="星期五">
-        </el-table-column>
-        <el-table-column
-          prop="saturday"
-          label="星期六">
-        </el-table-column>
-        <el-table-column
-          prop="sunday"
-          label="星期七">
-        </el-table-column>
-      </el-table>
+      <div class="table-wrapper">
+        <el-table
+          :data="workList"
+          border
+          style="width: 100%;color: greenyellow;"
+          >
+          <el-table-column
+            prop="date"
+            label=""
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="monday"
+            label="星期一"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="tuesday"
+            label="星期二">
+          </el-table-column>
+          <el-table-column
+            prop="wednesday"
+            label="星期三">
+          </el-table-column>
+          <el-table-column
+            prop="thursday"
+            label="星期四">
+          </el-table-column>
+          <el-table-column
+            prop="friday"
+            label="星期五">
+          </el-table-column>
+          <el-table-column
+            prop="saturday"
+            label="星期六">
+          </el-table-column>
+          <el-table-column
+            prop="sunday"
+            label="星期七">
+          </el-table-column>
+        </el-table>
+      </div>
       <el-button type="primary" @click="dialogFormVisible = true">更改内容</el-button>
 
       <el-dialog title="更改信息" width="80%" :visible.sync="dialogFormVisible">
@@ -143,5 +146,17 @@ export default {
 </script>
 
 <style scoped>
+.table-wrapper /deep/ .el-table--fit{
+  padding: 20px;
+}
+.table-wrapper /deep/  .el-table, .el-table__expanded-cell {
+  background-color: transparent;
+}
 
+.table-wrapper /deep/ .el-table tr {
+  background-color: transparent!important;
+}
+.table-wrapper /deep/  .el-table--enable-row-transition .el-table__body td, .el-table .cell{
+  background-color: transparent;
+}
 </style>
