@@ -1,7 +1,8 @@
 package com.shy.indx;
 
 
-import java.awt.BorderLayout;
+import com.shy.jdbc.DBConnection;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,11 +18,16 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class NotesAdd extends JFrame {
 
     private JPanel contentPane;
-    private JTextField textField;
+    private JTextField title;
     private JLabel lblNewLabel_1;
 
     /**
@@ -53,17 +59,34 @@ public class NotesAdd extends JFrame {
         JLabel lblNewLabel = new JLabel("主题");
         lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 35));
 
-        textField = new JTextField();
-        textField.setColumns(10);
+        title = new JTextField();
+        title.setColumns(10);
 
         lblNewLabel_1 = new JLabel("内容");
         lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 35));
 
-        JTextArea textArea = new JTextArea();
+        final JTextArea con = new JTextArea();
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        final String date = format.format(new Date());
 
         JButton btnNewButton = new JButton("提交");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                Connection connection = null;
+                PreparedStatement ps = null;
+                try {
+                    String sql = "insert into notes(data,title,content)" + "values (?,?,?)";
+                    connection = DBConnection.getConnection();
+                    ps = connection.prepareStatement(sql);
+                    ps.setString(1, date);
+                    ps.setString(2, title.getText());
+                    ps.setString(3, con.getText());
+                    int i = ps.executeUpdate();
+                } catch (
+                        SQLException throwables) {
+                    throwables.printStackTrace();
+                }
                 dispose();
                 new Notes().setVisible(true);
             }
@@ -84,12 +107,12 @@ public class NotesAdd extends JFrame {
                         .addGroup(gl_contentPane.createSequentialGroup()
                                 .addGap(178)
                                 .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-                                        .addComponent(textArea, GroupLayout.PREFERRED_SIZE, 464, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(con, GroupLayout.PREFERRED_SIZE, 464, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(gl_contentPane.createSequentialGroup()
                                                 .addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(ComponentPlacement.UNRELATED)
-                                                .addComponent(textField, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(title, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(235, Short.MAX_VALUE))
                         .addGroup(gl_contentPane.createSequentialGroup()
                                 .addGap(81)
@@ -103,12 +126,12 @@ public class NotesAdd extends JFrame {
                         .addGroup(gl_contentPane.createSequentialGroup()
                                 .addGap(19)
                                 .addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-                                        .addComponent(textField)
+                                        .addComponent(title)
                                         .addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
                                 .addGap(18)
                                 .addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(ComponentPlacement.RELATED)
-                                .addComponent(textArea, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(con, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
                                 .addGap(39)
                                 .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
                                         .addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
@@ -117,5 +140,6 @@ public class NotesAdd extends JFrame {
         );
         contentPane.setLayout(gl_contentPane);
     }
+
 }
 

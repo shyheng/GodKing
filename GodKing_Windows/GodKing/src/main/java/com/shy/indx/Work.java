@@ -1,6 +1,9 @@
 package com.shy.indx;
 
 
+import com.shy.jdbc.DBConnection;
+import com.shy.jdbc.Work_itme;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -16,8 +19,15 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Work extends JFrame {
 
@@ -74,6 +84,12 @@ public class Work extends JFrame {
         wea.setFont(new Font("宋体", Font.PLAIN, 45));
 
         JScrollPane scrollPane = new JScrollPane();
+        table = new JTable();
+        table.setModel(new DefaultTableModel(
+                work(),
+                new String[]{"星期一","星期二", "星期三", "星期四", "星期五","星期六","星期日"}
+        ));
+        scrollPane.setViewportView(table);
 
         JButton up_tab = new JButton("更改");
         up_tab.setFont(new Font("宋体", Font.PLAIN, 20));
@@ -111,9 +127,47 @@ public class Work extends JFrame {
                                 .addComponent(up_tab, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
         );
 
-        table = new JTable();
-        scrollPane.setViewportView(table);
+
         contentPane.setLayout(gl_contentPane);
+    }
+    public Object[][] work() {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+        List<Work_itme> workList = new ArrayList<>();
+        try {
+            String sql = "select * from work";
+            connection = DBConnection.getConnection();
+            ps = connection.prepareStatement(sql);
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                Work_itme work = new Work_itme();
+                work.setMonday(resultSet.getString(1));
+                work.setTuesday(resultSet.getString("tuesday"));
+                work.setWednesday(resultSet.getString("wednesday"));
+                work.setThursday(resultSet.getString("thursday"));
+                work.setFriday(resultSet.getString("friday"));
+                work.setSaturday(resultSet.getString("saturday"));
+                work.setSunday(resultSet.getString("sunday"));
+                workList.add(work);
+            }
+            DBConnection.colse(resultSet, ps, connection);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        Object[][] data = new Object[workList.size()][7];
+//        //循环遍历list，给二维数组赋值
+        for (int i = 0; i < workList.size(); i++) {
+            data[i][0] = workList.get(i).getMonday();
+            data[i][1] = workList.get(i).getTuesday();
+            data[i][2] = workList.get(i).getWednesday();
+            data[i][3] = workList.get(i).getThursday();
+            data[i][4] = workList.get(i).getFriday();
+            data[i][5] = workList.get(i).getSaturday();
+            data[i][6] = workList.get(i).getSunday();
+
+        }
+        return data;
     }
 }
 

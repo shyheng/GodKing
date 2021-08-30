@@ -1,5 +1,10 @@
 package com.shy.indx;
 
+import com.shy.list_weather.AddressUtils;
+import com.shy.list_weather.HourWeather;
+import com.shy.list_weather.W24h;
+import com.shy.list_weather.Weather_item;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -15,8 +20,15 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Weather extends JFrame {
 
@@ -43,6 +55,19 @@ public class Weather extends JFrame {
      * Create the frame.
      */
     public Weather() {
+
+        String map = AddressUtils.getCity("");
+        List<Weather_item> data = new ArrayList<>();
+        W24h w24h = new W24h();
+        List<HourWeather> weatherList = w24h.w24h("e8e17d73c85f4019887d3faecfea4ada",map);
+        for (int i = 0; i < weatherList.size(); i++) {
+            Weather_item weather = new Weather_item();
+            weather.setHour(weatherList.get(i).getHour());
+            weather.setWeather(weatherList.get(i).getWeather());
+            weather.setTemperature(weatherList.get(i).getTemperature());
+            data.add(weather);
+        }
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 937, 550);
         contentPane = new JPanel();
@@ -67,7 +92,7 @@ public class Weather extends JFrame {
         not.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Weather().setVisible(true);
+                new Notes().setVisible(true);
             }
         });
         not.setFont(new Font("宋体", Font.PLAIN, 45));
@@ -75,16 +100,22 @@ public class Weather extends JFrame {
         JLabel lblNewLabel = new JLabel("当前地址：");
         lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 25));
 
-        JLabel addr = new JLabel("未获取");
+        JLabel addr = new JLabel(map);
         addr.setFont(new Font("宋体", Font.PLAIN, 20));
 
         JLabel lblNewLabel_2 = new JLabel("当前温度：");
         lblNewLabel_2.setFont(new Font("宋体", Font.PLAIN, 25));
 
-        JLabel tem = new JLabel("未获取");
+        JLabel tem = new JLabel(data.get(0).getTemperature());
         tem.setFont(new Font("宋体", Font.PLAIN, 20));
 
         JScrollPane scrollPane = new JScrollPane();
+        table = new JTable();
+        table.setModel(new DefaultTableModel(
+                wea(),
+                new String[]{"小时","温度", "天气"}
+        ));
+        scrollPane.setViewportView(table);
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
                 gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -99,9 +130,9 @@ public class Weather extends JFrame {
                                         .addGroup(gl_contentPane.createSequentialGroup()
                                                 .addGap(46)
                                                 .addComponent(lblNewLabel)
-                                                .addGap(6)
-                                                .addComponent(addr, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                                                .addPreferredGap(ComponentPlacement.RELATED)
+                                                .addComponent(addr, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                                                 .addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(ComponentPlacement.RELATED)
                                                 .addComponent(tem, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
@@ -132,12 +163,32 @@ public class Weather extends JFrame {
                                                                 .addComponent(addr, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)))
                                                 .addPreferredGap(ComponentPlacement.RELATED)
                                                 .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 364, GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(68, Short.MAX_VALUE))
+                                .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        table = new JTable();
-        scrollPane.setViewportView(table);
+
         contentPane.setLayout(gl_contentPane);
     }
+    public Object[][] wea() {
+        String map = AddressUtils.getCity("");
+        List<Weather_item> wea = new ArrayList<>();
+        W24h w24h = new W24h();
+        List<HourWeather> weatherList = w24h.w24h("e8e17d73c85f4019887d3faecfea4ada",map);
+        for (int i = 0; i < weatherList.size(); i++) {
+            Weather_item weather = new Weather_item();
+            weather.setHour(weatherList.get(i).getHour());
+            weather.setWeather(weatherList.get(i).getWeather());
+            weather.setTemperature(weatherList.get(i).getTemperature());
+            wea.add(weather);
+        }
+        Object[][] data = new Object[wea.size()][7];
+//        //循环遍历list，给二维数组赋值
+        for (int i = 0; i < wea.size(); i++) {
+            data[i][0] = wea.get(i).getHour();
+            data[i][1] = wea.get(i).getTemperature();
+            data[i][2] = wea.get(i).getWeather();
 
+        }
+        return data;
+    }
 }
